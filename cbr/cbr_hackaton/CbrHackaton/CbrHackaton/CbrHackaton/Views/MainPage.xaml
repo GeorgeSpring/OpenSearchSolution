@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CbrHackaton.Views"
+             xmlns:ui="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
+             x:Class="CbrHackaton.Views.MainPage"            
+             BackgroundColor="#292929"
+             xmlns:Common ="clr-namespace:CbrHackaton.Views"
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
+             material:MaterialNavigationPage.AppBarColor="{OnPlatform Android={DynamicResource AppBarColor}, iOS={DynamicResource AppBarColorIOS}}" 
+             material:MaterialNavigationPage.AppBarTitleTextFontFamily="Roboto"
+             material:MaterialNavigationPage.AppBarTitleTextFontSize="18" 
+             material:MaterialNavigationPage.StatusBarColor="{OnPlatform Android={DynamicResource StatusBarColor}, iOS={DynamicResource StatusBarColorIOS}}" 
+             material:MaterialNavigationPage.AppBarTitleTextAlignment="Start">
+
+    <ScrollView x:Name="MainScrollView">
+        <Grid Padding="20, 30, 20, 20" RowSpacing="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Image Source="logo.png" Aspect="AspectFit" Grid.Row="1"/>
+            <Grid Grid.Row="2" HorizontalOptions="Fill">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image Source="iconEmail.png" HeightRequest="25" Grid.Column="0"/>
+                <ui:MaterialTextField VerticalOptions="Center" UnderlineColor="{DynamicResource AppBarColor}" AlwaysShowUnderline="True" PlaceholderColor="White" Text="{Binding User.Phone, Mode=TwoWay}" Placeholder="Номер телефона" BackgroundColor="Transparent" HorizontalOptions="Fill" TextColor="White" Grid.Row="0" Grid.Column="1"/>
+            </Grid>
+            <!--<BoxView HeightRequest="1" Grid.Row="2" HorizontalOptions="Fill" BackgroundColor="White" VerticalOptions="End"/>-->
+
+            <Grid Grid.Row="3" HorizontalOptions="Fill" VerticalOptions="Start" Padding="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image Source="iconPassword.png" HeightRequest="25" VerticalOptions="Center" />
+                <ui:MaterialTextField VerticalOptions="CenterAndExpand" UnderlineColor="{DynamicResource AppBarColor}" AlwaysShowUnderline="True" InputType="Password" PlaceholderColor="White" Text="{Binding User.Password, Mode=TwoWay}"  Placeholder="Пароль" BackgroundColor="Transparent" HorizontalOptions="Fill" TextColor="White" Grid.Row="0" Grid.Column="1"/>
+            </Grid>
+            <!-- <BoxView HeightRequest="1" Grid.Row="3" HorizontalOptions="Fill" BackgroundColor="White" VerticalOptions="End"/>-->
+
+            <StackLayout Grid.Row="4" Spacing="12" HorizontalOptions="Fill" Padding="{x:Static Common:DoubleResources.ButtonGroupPadding}">
+                <ui:MaterialButton Margin="0,10,0,0"  Clicked="Button_Clicked" Text="Войти" HorizontalOptions="Fill" HeightRequest="{x:Static Common:DoubleResources.SignUpButtonHeight}" Style="{DynamicResource MainButtonStyle}" Command="{Binding LoginCommand}"/>
+                <StackLayout Spacing="5">
+                    <Label Text="Забыли пароль?"  HorizontalOptions="Start" TextColor="White" FontSize="15"/>
+                </StackLayout >
+
+                <Image Source="fblogin.png" HorizontalOptions="Fill" HeightRequest="{x:Static Common:DoubleResources.FBButtonHeight}"/>
+
+                <StackLayout Spacing="5">
+                    <Label HorizontalOptions="End" TextColor="#6a75ab" x:Name="RegLabel" >
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span FontSize="15" Text="Нет аккаунта? " TextColor="#6a75ab"/>
+                                <Span FontSize="15" Text="Зарегистрироваться" TextColor="#6a75ab" TextDecorations="Underline">
+                                    <Span.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding TapCommand}"/>
+                                    </Span.GestureRecognizers>
+                                </Span>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout >
+            </StackLayout>
+
+        </Grid>
+    </ScrollView>
+
+</ContentPage>

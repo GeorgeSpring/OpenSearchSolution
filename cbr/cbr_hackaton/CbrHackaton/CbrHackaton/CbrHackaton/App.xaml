@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ui="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
+             x:Class="CbrHackaton.App">
+    <Application.Resources>
+        <!--IOS Colors-->
+        <Color x:Key="MainButtonColorIOS">#7c13df</Color>
+        <Color x:Key="MainButtonTextColorIOS">White</Color>
+        <Color x:Key="AppBarColorIOS">#7c13df</Color>
+        <Color x:Key="StatusBarColorIOS">#7c13df</Color>
+        <Color x:Key="LocationButtonColorIOS">LightGray</Color>
+        <Color x:Key="MainPageColorIOS">#f0eff4</Color>
+        <Color x:Key="FuelItemBorderColorIOS">#c77a00</Color>
+        <Color x:Key="StandartFuelItemBackgroundColorIOS">#ffe3b6</Color>
+        <Color x:Key="StandartFuelItemTextColorIOS">Black</Color>
+        <Color x:Key="SelectedFuelItemBackgroundColorIOS">#c77a00</Color>
+        <Color x:Key="SelectedFuelItemTextColorIOS">White</Color>
+        <Color x:Key="FuelItemCostLabelColorIOS">DarkGray</Color>
+        <!--IOS Colors end-->
+
+        <!--Android Colors-->
+        <Color x:Key="MainButtonColor">#7c13df</Color>
+        <Color x:Key="MainButtonTextColor">White</Color>
+        <Color x:Key="AppBarColor">#7c13df</Color>
+        <Color x:Key="StatusBarColor">#7c13df</Color>
+        <Color x:Key="LocationButtonColor">LightGray</Color>
+        <Color x:Key="MainPageColor">#f0eff4</Color>
+        <Color x:Key="FuelItemBorderColor">#c77a00</Color>
+        <Color x:Key="StandartFuelItemBackgroundColor">#ffe3b6</Color>
+        <Color x:Key="StandartFuelItemTextColor">Black</Color>
+        <Color x:Key="SelectedFuelItemBackgroundColor">#c77a00</Color>
+        <Color x:Key="SelectedFuelItemTextColor">White</Color>
+        <Color x:Key="FuelItemCostLabelColor">DarkGray</Color>
+        <Color x:Key="MainPlaceholderTextColor">#7C7E80</Color>
+        
+        <!--Android Colors ends-->
+        <Style x:Key="MainButtonStyle" TargetType="ui:MaterialButton">
+            <Setter Property="BackgroundColor" Value="{OnPlatform Android={DynamicResource MainButtonColor}, iOS={DynamicResource MainButtonColorIOS}}"/>
+            <Setter Property="TextColor" Value="{OnPlatform Android={DynamicResource MainButtonTextColor}, iOS={DynamicResource MainButtonTextColorIOS}}"/>
+        </Style>
+    </Application.Resources>
+</Application>

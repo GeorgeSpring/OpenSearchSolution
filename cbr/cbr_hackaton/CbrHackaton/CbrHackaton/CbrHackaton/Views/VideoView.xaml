@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:roxv="clr-namespace:Rox;assembly=Rox.Xamarin.Video.Portable"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:o="clr-namespace:Octane.Xamarin.Forms.VideoPlayer;assembly=Octane.Xamarin.Forms.VideoPlayer"
+             x:Class="CbrHackaton.Views.VideoView"         
+             BackgroundColor="#292929"
+             xmlns:Common ="clr-namespace:CbrHackaton.Views"
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
+             material:MaterialNavigationPage.AppBarColor="{OnPlatform Android={DynamicResource AppBarColor}, iOS={DynamicResource AppBarColorIOS}}" 
+             material:MaterialNavigationPage.AppBarTitleTextFontFamily="Roboto"
+             material:MaterialNavigationPage.AppBarTitleTextFontSize="18" 
+             material:MaterialNavigationPage.StatusBarColor="{OnPlatform Android={DynamicResource StatusBarColor}, iOS={DynamicResource StatusBarColorIOS}}" 
+             material:MaterialNavigationPage.AppBarTitleTextAlignment="Start">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Выбрать" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <roxv:VideoView AutoPlay="True" LoopPlay="True" ShowController="True"  x:Name="videoPlayer1" />
+    </ContentPage.Content>
+</ContentPage>

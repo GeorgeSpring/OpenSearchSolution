@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ui="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
+             mc:Ignorable="d"
+             x:Class="CbrHackaton.Views.RegistrationVIew">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Grid Margin="20,10,20,10" RowSpacing="0">
+                    <Grid.RowDefinitions >
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <ui:MaterialTextField x:Name="TextBox2" HasError="{Binding Model.HasNameError}" Grid.Row="0" Margin="0,0,0,0"  Text="{Binding Model.FirstName, Mode=TwoWay}"  PlaceholderColor="{DynamicResource MainButtonColor}" ErrorText="{Binding Model.FirstNameError}" Placeholder="Имя" />
+                    <ui:MaterialTextField Grid.Row="1" HasError="{Binding Model.HasPhoneError}" Margin="0,0,0,0" Text="{Binding Model.Phone, Mode=TwoWay}" PlaceholderColor="{DynamicResource MainButtonColor}" ErrorText="{Binding Model.PhoneError}" Placeholder="Номер телефона" InputType="Telephone"/>
+                    <ui:MaterialTextField x:Name="TextBox6" HasError="{Binding Model.HasPasswordError}" Grid.Row="2" Margin="0,0,0,0" Text="{Binding Model.Password, Mode=TwoWay}" PlaceholderColor="{DynamicResource MainButtonColor}" ErrorText="{Binding Model.PasswordError}" InputType="Password"  Placeholder="Пароль"/>
+                    <ui:MaterialTextField x:Name="TextBox7" HasError="{Binding Model.HasSecondPasswordError}" Grid.Row="3" Margin="0,0,0,0" Text="{Binding Model.SecondPassword, Mode=TwoWay}" PlaceholderColor="{DynamicResource MainButtonColor}" ErrorText="{Binding Model.SecondPasswordError}" InputType="Password" Placeholder="Подтверждение пароля"/>
+                </Grid>
+                <StackLayout VerticalOptions="EndAndExpand" Margin="10,10,10,10">
+                    <ui:MaterialButton Margin="0" Text="Зарегистрироваться" Style="{DynamicResource MainButtonStyle}" Clicked="Button_Clicked"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

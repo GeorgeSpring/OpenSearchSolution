@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CbrHackaton.Views.ImageView"         
+             BackgroundColor="#292929"
+             xmlns:Common ="clr-namespace:CbrHackaton.Views"
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
+             material:MaterialNavigationPage.AppBarColor="{OnPlatform Android={DynamicResource AppBarColor}, iOS={DynamicResource AppBarColorIOS}}" 
+             material:MaterialNavigationPage.AppBarTitleTextFontFamily="Roboto"
+             material:MaterialNavigationPage.AppBarTitleTextFontSize="18" 
+             material:MaterialNavigationPage.StatusBarColor="{OnPlatform Android={DynamicResource StatusBarColor}, iOS={DynamicResource StatusBarColorIOS}}" 
+             material:MaterialNavigationPage.AppBarTitleTextAlignment="Start">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Выбрать" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Image Aspect="AspectFit" x:Name="Image1"/>
+    </ContentPage.Content>
+</ContentPage>

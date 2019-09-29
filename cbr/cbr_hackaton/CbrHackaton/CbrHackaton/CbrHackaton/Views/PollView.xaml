@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ui="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
+             x:Class="CbrHackaton.Views.PollView"
+             Title="Инициативы"  
+             xmlns:effects="clr-namespace:Sharpnado.Presentation.Forms.Effects;assembly=Sharpnado.Presentation.Forms"
+             xmlns:Common ="clr-namespace:CbrHackaton.Views"
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
+             material:MaterialNavigationPage.AppBarColor="{OnPlatform Android={DynamicResource AppBarColor}, iOS={DynamicResource AppBarColorIOS}}" 
+             material:MaterialNavigationPage.AppBarTitleTextFontFamily="Roboto"
+             material:MaterialNavigationPage.AppBarTitleTextFontSize="18" 
+             material:MaterialNavigationPage.StatusBarColor="{OnPlatform Android={DynamicResource StatusBarColor}, iOS={DynamicResource StatusBarColorIOS}}" 
+             material:MaterialNavigationPage.AppBarTitleTextAlignment="Start">
+    <ContentPage.Content>
+        <ListView HasUnevenRows="True" x:Name="MainLV" SeparatorVisibility="None" ItemTapped="MainLV_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <ui:MaterialCard Margin="5,7,5,7" Elevation="4" HorizontalOptions="FillAndExpand">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label FontSize="18" Grid.Column="0" Grid.Row="0" Margin="2" Text="{Binding Name}" TextColor="#292929"/>
+
+                                    <StackLayout Orientation="Vertical" Grid.Column="1">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label TextColor="#292929" Text="C:" VerticalOptions="Center"/>
+                                            <ui:MaterialChip VerticalOptions="Center" BackgroundColor="{DynamicResource AppBarColor}" TextColor="White" HorizontalOptions="EndAndExpand" Grid.Column="1" Text="{Binding DateFrom}"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label TextColor="#292929" VerticalOptions="Center" Text="По:"/>
+                                            <ui:MaterialChip VerticalOptions="Center" BackgroundColor="{DynamicResource AppBarColor}" TextColor="White" HorizontalOptions="EndAndExpand" Grid.Column="1" Text="{Binding DateTo}"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <ui:MaterialChip TextColor="White" Grid.Column="1" Text="Поделиться" BackgroundColor="{DynamicResource AppBarColor}" Image="share.png" Grid.Row="1" HorizontalOptions="Start" effects:TapCommandEffect.Tap="{Binding UrlTapped}"
+                                                     VerticalOptions="End"
+                                      effects:TapCommandEffect.TapParameter="{Binding .}"
+                                      effects:ViewEffect.TouchFeedbackColor="Transparent"/>
+                                </Grid>
+                            </ui:MaterialCard>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

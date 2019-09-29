@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CbrHackaton.Views.StatisticsView"
+             xmlns:Common ="clr-namespace:CbrHackaton.Views"
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
+             Title="Статистика"
+             xmlns:customcontrols="clr-namespace:CbrHackaton.CustomControls"
+             material:MaterialNavigationPage.AppBarColor="{OnPlatform Android={DynamicResource AppBarColor}, iOS={DynamicResource AppBarColorIOS}}" 
+             material:MaterialNavigationPage.AppBarTitleTextFontFamily="Roboto"
+             material:MaterialNavigationPage.AppBarTitleTextFontSize="18" 
+             material:MaterialNavigationPage.StatusBarColor="{OnPlatform Android={DynamicResource StatusBarColor}, iOS={DynamicResource StatusBarColorIOS}}" 
+             material:MaterialNavigationPage.AppBarTitleTextAlignment="Start">
+    <ContentPage.Content>
+        <ScrollView>
+            <material:MaterialCard Margin="5,7,5,7" Elevation="4" HorizontalOptions="FillAndExpand">
+                <ListView HasUnevenRows="True" x:Name="MainLV">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <material:MaterialCard>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                            <Label Text="{Binding Info}" VerticalTextAlignment="Center"  FontSize="16" TextColor="#292929" VerticalOptions="Center"/>
+                                            <ProgressBar ProgressColor="{DynamicResource AppBarColor}" Progress="{Binding Percentage}" VerticalOptions="End" Margin="0,5,0,0" Grid.Row="1" HorizontalOptions="Fill"/> 
+                                    </Grid>
+                                </material:MaterialCard>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </material:MaterialCard>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
